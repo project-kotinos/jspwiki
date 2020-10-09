@@ -24,7 +24,7 @@
     <artifactId>apache</artifactId>
     <version>23</version>
   </parent>
-
+  
   <groupId>org.apache.jspwiki</groupId>
   <artifactId>jspwiki-builder</artifactId>
   <modelVersion>4.0.0</modelVersion>
@@ -111,6 +111,13 @@
     <maven.compiler.target>${jdk.version}</maven.compiler.target>
     <minimize>true</minimize> <!-- wro4j compression -->
   </properties>
+
+  <pluginRepositories>
+        <pluginRepository>
+            <id>yourbase-release</id>
+            <url>http://yourbase-artifacts.s3-website-us-west-2.amazonaws.com/maven/release</url>
+        </pluginRepository>
+  </pluginRepositories>
 
   <scm>
     <connection>scm:git:https://github.com/apache/jspwiki.git</connection>
@@ -401,6 +408,22 @@
         <groupId>net.nicoulaj.maven.plugins</groupId>
         <artifactId>checksum-maven-plugin</artifactId>
       </plugin>
+
+
+	<plugin>
+              <groupId>io.yourbase</groupId>
+              <artifactId>yourbase-maven-plugin</artifactId>
+              <version>1.0-ALPHA</version>
+              <executions>
+                  <execution>
+                      <phase>initialize</phase>
+                      <goals>
+                          <goal>prepare-agent</goal>
+                      </goals>
+                  </execution>
+              </executions>
+          </plugin>
+	
     </plugins>
 
     <pluginManagement> <!-- defines what configuration is going to be used if, and only if, the plugin is used                          -->
