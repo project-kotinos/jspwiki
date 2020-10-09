@@ -8,7 +8,7 @@ build_targets:
     container:
       image: yourbase/yb_ubuntu:18.04
     commands:
-      - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Pintegration-tests
+      - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install
 
 ci:
   builds:
