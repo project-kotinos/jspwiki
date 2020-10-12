@@ -592,7 +592,8 @@
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>${plugin.surefire.version}</version>
-          <configuration>
+	  <configuration>
+	    <forkCount>0</forkCount>
             <systemPropertyVariables>
               <java.io.tmpdir>${project.build.directory}</java.io.tmpdir>
             </systemPropertyVariables>
